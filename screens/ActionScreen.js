@@ -1,43 +1,52 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 const ActionScreen = ({navigation}) => {
   return (
-    <LinearGradient
-      start={{x: 0, y: 0}}
-      end={{x: 0, y: 1}}
-      colors={['#9e236a', '#071e3b']}
-      style={styles.linearGradient}>
-      <View style={styles.follow}>
-        <View style={styles.followItem1}>
-          <Text style={styles.count}>1000</Text>
-          <Text style={styles.socialItem}>Following</Text>
-        </View>
-        <View style={styles.followItem2}>
-          <Text style={styles.count}>1000</Text>
-          <Text style={styles.socialItem}>Follow Backs</Text>
+    <SafeAreaView>
+      <LinearGradient
+        start={{x: 0, y: 0}}
+        end={{x: 0, y: 1}}
+        colors={['#9e236a', '#071e3b']}
+        style={styles.linearGradient}>
+        <View style={styles.follow}>
+          <View style={styles.followItem1}>
+            <Text style={styles.count}>1000</Text>
+            <Text style={styles.socialItem}>Following</Text>
+          </View>
+          <View style={styles.followItem2}>
+            <Text style={styles.count}>1000</Text>
+            <Text style={styles.socialItem}>Follow Backs</Text>
+          </View>
+
+          <View style={styles.followItem3}>
+            <Text style={styles.count}>+1000</Text>
+            <Text style={styles.socialItem}>Credits</Text>
+          </View>
+          <View style={styles.followItem4}>
+            <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
+              <Image
+                style={styles.settings}
+                source={require('../image/settings.png')}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
 
-        <View style={styles.followItem3}>
-          <Text style={styles.count}>+1000</Text>
-          <Text style={styles.socialItem}>Credits</Text>
-        </View>
-        <View style={styles.followItem4}>
-          <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
-            <Image
-              style={styles.settings}
-              source={require('../image/settings.png')}
-            />
-          </TouchableOpacity>
-        </View>
-      </View>
+        <Text style={styles.some}>Some interesting accounts</Text>
+        <View style={styles.acounts} />
 
-      <Text style={styles.some}>Some interesting accounts</Text>
-      <View style={styles.acounts} />
-
-      <View style={styles.acounts} />
-    </LinearGradient>
+        <View style={styles.acounts} />
+      </LinearGradient>
+    </SafeAreaView>
   );
 };
 ActionScreen.navigationOptions = () => {

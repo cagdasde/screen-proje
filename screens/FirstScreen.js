@@ -1,34 +1,36 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, SafeAreaView, Text, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 const FirstScreen = () => {
   return (
-    <LinearGradient
-      start={{x: 0, y: 0}}
-      end={{x: 0, y: 1}}
-      colors={['#9e236a', '#071e3b']}
-      style={styles.linearGradient}>
-      <View>
-        <Text style={styles.lets}>Lets follow each other</Text>
-      </View>
-      <View style={styles.list}>
-        <Text style={styles.before}>Before we start, here some infos</Text>
-        <Text style={styles.listItem}>
-          Anyone can unfollow, we do not guarantee
-        </Text>
-        <Text style={styles.listItem}>Followback may take 72 hours</Text>
-        <Text style={styles.listItem}>100 % Secure Login.</Text>
-        <Text style={styles.listItem}>0 Risk policy</Text>
-      </View>
-      <View style={styles.login}>
-        <Text style={styles.loginText}>Login with Instagram</Text>
-      </View>
-      <View style={styles.social}>
-        <Text style={styles.socialItem}>Rate</Text>
-        <Text style={styles.socialItem}>Share</Text>
-      </View>
-    </LinearGradient>
+    <SafeAreaView>
+      <LinearGradient
+        start={{x: 0, y: 0}}
+        end={{x: 0, y: 1}}
+        colors={['#9e236a', '#071e3b']}
+        style={styles.linearGradient}>
+        <View>
+          <Text style={styles.lets}>Lets follow each other</Text>
+        </View>
+        <View style={styles.list}>
+          <Text style={styles.before}>Before we start, here some infos</Text>
+          <Text style={styles.listItem}>
+            Anyone can unfollow, we do not guarantee
+          </Text>
+          <Text style={styles.listItem}>Followback may take 72 hours</Text>
+          <Text style={styles.listItem}>100 % Secure Login.</Text>
+          <Text style={styles.listItem}>0 Risk policy</Text>
+        </View>
+        <View style={styles.login}>
+          <Text style={styles.loginText}>Login with Instagram</Text>
+        </View>
+        <View style={styles.social}>
+          <Text style={styles.socialItem}>Rate</Text>
+          <Text style={styles.socialItem}>Share</Text>
+        </View>
+      </LinearGradient>
+    </SafeAreaView>
   );
 };
 FirstScreen.navigationOptions = () => {

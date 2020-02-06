@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import CheckBox from 'react-native-check-box';
 
@@ -12,66 +19,92 @@ class LanguageScreen extends Component {
   }
   render() {
     return (
-      <LinearGradient
-        start={{x: 0, y: 0}}
-        end={{x: 0, y: 1}}
-        colors={['#9e236a', '#071e3b']}
-        style={styles.linearGradient}>
-        <View style={{marginTop: 30}} />
-        <View style={styles.languageCheck}>
-          <Text style={styles.languageText}>All Languages</Text>
-          <CheckBox
-            checkBoxColor="#ffffff"
-            style={styles.languageCheckItem}
-            onClick={() => {
-              this.setState({
-                isChecked: !this.state.isChecked,
-              });
-            }}
-            isChecked={this.state.isChecked}
-          />
-        </View>
-        <View style={styles.bottomLine} />
-        <View style={styles.languageCheck}>
-          <Text style={styles.languageText}>Afganistan</Text>
-          <CheckBox checkBoxColor="#ffffff" style={styles.languageCheckItem} />
-        </View>
-        <View style={styles.bottomLine} />
-        <View style={styles.languageCheck}>
-          <Text style={styles.languageText}>Agypten</Text>
-          <CheckBox checkBoxColor="#ffffff" style={styles.languageCheckItem} />
-        </View>
-        <View style={styles.bottomLine} />
-        <View style={styles.languageCheck}>
-          <Text style={styles.languageText}>Albanien</Text>
-          <CheckBox checkBoxColor="#ffffff" style={styles.languageCheckItem} />
-        </View>
-        <View style={styles.bottomLine} />
-        <View style={styles.languageCheck}>
-          <Text style={styles.languageText}>Algerien</Text>
-          <CheckBox checkBoxColor="#ffffff" style={styles.languageCheckItem} />
-        </View>
-        <View style={styles.bottomLine} />
-        <View style={styles.languageCheck}>
-          <Text style={styles.languageText}>Andorra</Text>
-          <CheckBox checkBoxColor="#ffffff" style={styles.languageCheckItem} />
-        </View>
-        <View style={styles.bottomLine} />
-        <View style={styles.languageCheck}>
-          <Text style={styles.languageText}>Angola</Text>
-          <CheckBox checkBoxColor="#ffffff" style={styles.languageCheckItem} />
-        </View>
-        <View style={styles.bottomLine} />
-        <View style={styles.languageCheck}>
-          <Text style={styles.languageText}>Antigua und Burbuda</Text>
-          <CheckBox checkBoxColor="#ffffff" style={styles.languageCheckItem} />
-        </View>
-        <View style={styles.bottomLine} />
-        <View style={styles.languageCheck}>
-          <Text style={styles.languageText}>Aquatorialguinea</Text>
-          <CheckBox checkBoxColor="#ffffff" style={styles.languageCheckItem} />
-        </View>
-      </LinearGradient>
+      <SafeAreaView>
+        <LinearGradient
+          start={{x: 0, y: 0}}
+          end={{x: 0, y: 1}}
+          colors={['#9e236a', '#071e3b']}
+          style={styles.linearGradient}>
+          <View style={{marginTop: 30}} />
+          <View style={styles.languageCheck}>
+            <Text style={styles.languageText}>All Languages</Text>
+            <CheckBox
+              checkBoxColor="#ffffff"
+              style={styles.languageCheckItem}
+              onClick={() => {
+                this.setState({
+                  isChecked: !this.state.isChecked,
+                });
+              }}
+              isChecked={this.state.isChecked}
+            />
+          </View>
+          <View style={styles.bottomLine} />
+          <View style={styles.languageCheck}>
+            <Text style={styles.languageText}>Afganistan</Text>
+            <CheckBox
+              checkBoxColor="#ffffff"
+              style={styles.languageCheckItem}
+            />
+          </View>
+          <View style={styles.bottomLine} />
+          <View style={styles.languageCheck}>
+            <Text style={styles.languageText}>Agypten</Text>
+            <CheckBox
+              checkBoxColor="#ffffff"
+              style={styles.languageCheckItem}
+            />
+          </View>
+          <View style={styles.bottomLine} />
+          <View style={styles.languageCheck}>
+            <Text style={styles.languageText}>Albanien</Text>
+            <CheckBox
+              checkBoxColor="#ffffff"
+              style={styles.languageCheckItem}
+            />
+          </View>
+          <View style={styles.bottomLine} />
+          <View style={styles.languageCheck}>
+            <Text style={styles.languageText}>Algerien</Text>
+            <CheckBox
+              checkBoxColor="#ffffff"
+              style={styles.languageCheckItem}
+            />
+          </View>
+          <View style={styles.bottomLine} />
+          <View style={styles.languageCheck}>
+            <Text style={styles.languageText}>Andorra</Text>
+            <CheckBox
+              checkBoxColor="#ffffff"
+              style={styles.languageCheckItem}
+            />
+          </View>
+          <View style={styles.bottomLine} />
+          <View style={styles.languageCheck}>
+            <Text style={styles.languageText}>Angola</Text>
+            <CheckBox
+              checkBoxColor="#ffffff"
+              style={styles.languageCheckItem}
+            />
+          </View>
+          <View style={styles.bottomLine} />
+          <View style={styles.languageCheck}>
+            <Text style={styles.languageText}>Antigua und Burbuda</Text>
+            <CheckBox
+              checkBoxColor="#ffffff"
+              style={styles.languageCheckItem}
+            />
+          </View>
+          <View style={styles.bottomLine} />
+          <View style={styles.languageCheck}>
+            <Text style={styles.languageText}>Aquatorialguinea</Text>
+            <CheckBox
+              checkBoxColor="#ffffff"
+              style={styles.languageCheckItem}
+            />
+          </View>
+        </LinearGradient>
+      </SafeAreaView>
     );
   }
 }

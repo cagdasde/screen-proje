@@ -31,6 +31,11 @@ const FirstScreen = () => {
     </LinearGradient>
   );
 };
+FirstScreen.navigationOptions = () => {
+  return {
+    header: <View style={{margin: 0}} />,
+  };
+};
 
 const styles = StyleSheet.create({
   linearGradient: {

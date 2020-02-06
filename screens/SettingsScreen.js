@@ -1,21 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const SettingsScreen = () => {
+const SettingsScreen = ({navigation}) => {
   return (
     <LinearGradient
       start={{x: 0, y: 0}}
       end={{x: 0, y: 1}}
       colors={['#9e236a', '#071e3b']}
       style={styles.linearGradient}>
-      <View style={styles.lists}>
-        <Image
-          style={styles.square}
-          source={require('../image/leftarrow.png')}
-        />
-        <Text style={styles.list}>Settings</Text>
-      </View>
       <View>
         <Image style={styles.user} source={require('../image/cagdas.jpg')} />
       </View>
@@ -41,20 +34,24 @@ const SettingsScreen = () => {
       <View style={styles.bottomLine} />
       <View style={styles.listCheck}>
         <Text style={styles.listText}>Category</Text>
-        <Image
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{marginRight: 15}}
-          source={require('../image/rightarrow.png')}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Category')}>
+          <Image
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{marginRight: 15}}
+            source={require('../image/rightarrow.png')}
+          />
+        </TouchableOpacity>
       </View>
       <View style={styles.bottomLine} />
       <View style={styles.listCheck}>
         <Text style={styles.listText}>Language</Text>
-        <Image
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{marginRight: 15}}
-          source={require('../image/rightarrow.png')}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Category')}>
+          <Image
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{marginRight: 15}}
+            source={require('../image/rightarrow.png')}
+          />
+        </TouchableOpacity>
       </View>
       <View style={styles.bottomLine} />
       <View style={styles.login}>
@@ -67,6 +64,21 @@ const SettingsScreen = () => {
     </LinearGradient>
   );
 };
+SettingsScreen.navigationOptions = ({navigation}) => {
+  return {
+    header: (
+      <View style={styles.lists}>
+        <TouchableOpacity onPress={() => navigation.navigate('Index')}>
+          <Image
+            style={styles.square}
+            source={require('../image/leftarrow.png')}
+          />
+        </TouchableOpacity>
+        <Text style={styles.list}>Settings</Text>
+      </View>
+    ),
+  };
+};
 
 const styles = StyleSheet.create({
   linearGradient: {
@@ -75,7 +87,6 @@ const styles = StyleSheet.create({
   lists: {
     backgroundColor: '#40204d',
     flexDirection: 'row',
-    marginBottom: 30,
   },
   list: {
     backgroundColor: '#40204d',
@@ -122,6 +133,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     backgroundColor: 'white',
     marginHorizontal: 160,
+    marginTop: 20,
   },
   userText: {
     color: '#ffffff',

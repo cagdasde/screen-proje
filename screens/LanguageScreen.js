@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import CheckBox from 'react-native-check-box';
 
@@ -17,13 +17,7 @@ class LanguageScreen extends Component {
         end={{x: 0, y: 1}}
         colors={['#9e236a', '#071e3b']}
         style={styles.linearGradient}>
-        <View style={styles.languages}>
-          <Image
-            style={styles.square}
-            source={require('../image/leftarrow.png')}
-          />
-          <Text style={styles.language}>Languages</Text>
-        </View>
+        <View style={{marginTop: 30}} />
         <View style={styles.languageCheck}>
           <Text style={styles.languageText}>All Languages</Text>
           <CheckBox
@@ -81,7 +75,21 @@ class LanguageScreen extends Component {
     );
   }
 }
-
+LanguageScreen.navigationOptions = ({navigation}) => {
+  return {
+    header: (
+      <View style={styles.languages}>
+        <TouchableOpacity onPress={() => navigation.navigate('Index')}>
+          <Image
+            style={styles.square}
+            source={require('../image/leftarrow.png')}
+          />
+        </TouchableOpacity>
+        <Text style={styles.language}>Languages</Text>
+      </View>
+    ),
+  };
+};
 const styles = StyleSheet.create({
   linearGradient: {
     height: 700,
@@ -89,7 +97,6 @@ const styles = StyleSheet.create({
   languages: {
     backgroundColor: '#40204d',
     flexDirection: 'row',
-    marginBottom: 30,
   },
   language: {
     backgroundColor: '#40204d',
@@ -131,7 +138,7 @@ const styles = StyleSheet.create({
     width: 35,
     backgroundColor: '#872363',
     marginLeft: 10,
-    marginTop: 30,
+    marginTop: 50,
     marginRight: 99,
   },
 });

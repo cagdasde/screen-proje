@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const ActionScreen = () => {
+const ActionScreen = ({navigation}) => {
   return (
     <LinearGradient
       start={{x: 0, y: 0}}
@@ -24,18 +24,26 @@ const ActionScreen = () => {
           <Text style={styles.socialItem}>Credits</Text>
         </View>
         <View style={styles.followItem4}>
-          <Image
-            style={styles.settings}
-            source={require('../image/settings.png')}
-          />
+          <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
+            <Image
+              style={styles.settings}
+              source={require('../image/settings.png')}
+            />
+          </TouchableOpacity>
         </View>
       </View>
+
       <Text style={styles.some}>Some interesting accounts</Text>
       <View style={styles.acounts} />
 
       <View style={styles.acounts} />
     </LinearGradient>
   );
+};
+ActionScreen.navigationOptions = () => {
+  return {
+    header: <View style={{margin: 0}} />,
+  };
 };
 
 const styles = StyleSheet.create({

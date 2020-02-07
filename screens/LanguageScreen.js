@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -6,108 +6,53 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  ScrollView,
+  CheckBox,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import CheckBox from 'react-native-check-box';
 
-class LanguageScreen extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isChecked: true,
-    };
-  }
-  render() {
-    return (
-      <SafeAreaView>
-        <LinearGradient
-          start={{x: 0, y: 0}}
-          end={{x: 0, y: 1}}
-          colors={['#9e236a', '#071e3b']}
-          style={styles.linearGradient}>
-          <View style={{marginTop: 30}} />
-          <View style={styles.languageCheck}>
-            <Text style={styles.languageText}>All Languages</Text>
-            <CheckBox
-              checkBoxColor="#ffffff"
-              style={styles.languageCheckItem}
-              onClick={() => {
-                this.setState({
-                  isChecked: !this.state.isChecked,
-                });
-              }}
-              isChecked={this.state.isChecked}
-            />
-          </View>
-          <View style={styles.bottomLine} />
-          <View style={styles.languageCheck}>
-            <Text style={styles.languageText}>Afganistan</Text>
-            <CheckBox
-              checkBoxColor="#ffffff"
-              style={styles.languageCheckItem}
-            />
-          </View>
-          <View style={styles.bottomLine} />
-          <View style={styles.languageCheck}>
-            <Text style={styles.languageText}>Agypten</Text>
-            <CheckBox
-              checkBoxColor="#ffffff"
-              style={styles.languageCheckItem}
-            />
-          </View>
-          <View style={styles.bottomLine} />
-          <View style={styles.languageCheck}>
-            <Text style={styles.languageText}>Albanien</Text>
-            <CheckBox
-              checkBoxColor="#ffffff"
-              style={styles.languageCheckItem}
-            />
-          </View>
-          <View style={styles.bottomLine} />
-          <View style={styles.languageCheck}>
-            <Text style={styles.languageText}>Algerien</Text>
-            <CheckBox
-              checkBoxColor="#ffffff"
-              style={styles.languageCheckItem}
-            />
-          </View>
-          <View style={styles.bottomLine} />
-          <View style={styles.languageCheck}>
-            <Text style={styles.languageText}>Andorra</Text>
-            <CheckBox
-              checkBoxColor="#ffffff"
-              style={styles.languageCheckItem}
-            />
-          </View>
-          <View style={styles.bottomLine} />
-          <View style={styles.languageCheck}>
-            <Text style={styles.languageText}>Angola</Text>
-            <CheckBox
-              checkBoxColor="#ffffff"
-              style={styles.languageCheckItem}
-            />
-          </View>
-          <View style={styles.bottomLine} />
-          <View style={styles.languageCheck}>
-            <Text style={styles.languageText}>Antigua und Burbuda</Text>
-            <CheckBox
-              checkBoxColor="#ffffff"
-              style={styles.languageCheckItem}
-            />
-          </View>
-          <View style={styles.bottomLine} />
-          <View style={styles.languageCheck}>
-            <Text style={styles.languageText}>Aquatorialguinea</Text>
-            <CheckBox
-              checkBoxColor="#ffffff"
-              style={styles.languageCheckItem}
-            />
-          </View>
-        </LinearGradient>
-      </SafeAreaView>
-    );
-  }
+function LanguageScreen() {
+  const [languages, setLanguages] = useState([
+    {language: 'All Languages', key: '0'},
+    {language: 'Afganistan', key: '1'},
+    {language: 'Agypten', key: '2'},
+    {language: 'Albanien', key: '3'},
+    {language: 'Algerien', key: '4'},
+    {language: 'Andorra', key: '5'},
+    {language: 'Antigua und Burbuda', key: '6'},
+    {language: 'Aquatorialguinea', key: '7'},
+  ]);
+
+  return (
+    <SafeAreaView>
+      <LinearGradient
+        start={{x: 0, y: 0}}
+        end={{x: 0, y: 1}}
+        colors={['#9e236a', '#071e3b']}
+        style={styles.linearGradient}>
+        <View style={{marginTop: 30}} />
+        <View>
+          <ScrollView>
+            {languages.map(item => (
+              <View key={item.key}>
+                <View style={styles.languageCheck}>
+                  <Text style={styles.languageText}>{item.language}</Text>
+                  <CheckBox
+                    checkBoxColor="#ffffff"
+                    style={styles.languageCheckItem}
+                    value={false}
+                  />
+                </View>
+                <View style={styles.bottomLine} />
+              </View>
+            ))}
+          </ScrollView>
+        </View>
+      </LinearGradient>
+    </SafeAreaView>
+  );
 }
+
 LanguageScreen.navigationOptions = ({navigation}) => {
   return {
     header: (
@@ -125,7 +70,7 @@ LanguageScreen.navigationOptions = ({navigation}) => {
 };
 const styles = StyleSheet.create({
   linearGradient: {
-    height: 700,
+    height: 750,
   },
   languages: {
     backgroundColor: '#40204d',
@@ -144,13 +89,12 @@ const styles = StyleSheet.create({
   languageCheck: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-
-    marginHorizontal: 10,
   },
   languageCheckItem: {
     borderRadius: 2,
     borderColor: '#ffffff',
     opacity: 0.8,
+    marginRight: 10,
   },
   languageText: {
     fontSize: 18,
@@ -159,19 +103,20 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
     fontFamily: 'Avenir',
     lineHeight: 30,
+    marginLeft: 10,
   },
   bottomLine: {
     height: 0.5,
     backgroundColor: '#ffffff',
-    marginBottom: 10,
-    marginTop: 10,
+    marginBottom: 12,
+    marginTop: 12,
   },
   square: {
     height: 35,
     width: 35,
     backgroundColor: '#872363',
     marginLeft: 10,
-    marginTop: 50,
+    marginTop: 25,
     marginRight: 99,
   },
 });

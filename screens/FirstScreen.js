@@ -41,7 +41,7 @@ FirstScreen.navigationOptions = () => {
 
 const styles = StyleSheet.create({
   linearGradient: {
-    height: 700,
+    height: 750,
   },
   lets: {
     marginBottom: 30,

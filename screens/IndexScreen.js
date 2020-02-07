@@ -9,7 +9,7 @@ const IndexScreen = ({navigation}) => {
         start={{x: 0, y: 0}}
         end={{x: 0, y: 1}}
         colors={['#9e236a', '#071e3b']}
-        style={{height: 700}}>
+        style={{height: 750}}>
         <View style={styles.screenButton}>
           <View style={{marginTop: 25}} />
           <Button

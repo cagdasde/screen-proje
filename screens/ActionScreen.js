@@ -57,7 +57,7 @@ ActionScreen.navigationOptions = () => {
 
 const styles = StyleSheet.create({
   linearGradient: {
-    height: 700,
+    height: 750,
   },
   socialItem: {
     color: '#288be7',
